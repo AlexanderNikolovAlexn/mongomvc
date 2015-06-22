@@ -28,7 +28,7 @@ namespace mongomvc.Services
         {
             MongoCollection collection = con.database.GetCollection<Post>("comments");
             IMongoQuery query = Query.EQ("PostId", postId);
-            MongoCursor<Comment> cursor = collection.FindAs<Comment>(query);
+            MongoCursor<Comment> cursor = collection.FindAs<Comment>(query).SetSortOrder(SortBy.Descending("DateCreated"));
             var list = cursor.ToList();
             con.Disconnect();
             return list;

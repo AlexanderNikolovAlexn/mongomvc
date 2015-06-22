@@ -37,7 +37,7 @@ namespace mongomvc.Services
         public List<Post> GetList()
         {
             MongoCollection collection = con.database.GetCollection<Post>("posts");
-            MongoCursor<Post> cursor = collection.FindAllAs<Post>();
+            MongoCursor<Post> cursor = collection.FindAllAs<Post>().SetSortOrder(SortBy.Descending("DateCreated"));
             var list = cursor.ToList();
             con.Disconnect();
             return list;
