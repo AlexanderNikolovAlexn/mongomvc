@@ -1,0 +1,16 @@
+﻿@model IEnumerable<mongomvc.Models.Post>
+
+@{
+    ViewBag.Title = "Posts";
+}
+
+@Html.ActionLink("Add new post", "Add", "Post")
+
+@foreach (var post in Model)
+{
+    <h2>@Html.ActionLink(@post.Title, "Detail", new { id = post.PostId})</h2>
+    <div style="font-size:small"><i>@post.DateCreated</i></div>
+    <p>@Html.Raw(post.Body)</p>       
+
+    <hr style="border: solid">
+}

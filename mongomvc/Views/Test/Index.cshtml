@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<script src="http://code.jquery.com/jquery-1.7.1.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+<h2>Index</h2>
+
+<div id="targetId">
+</div>
+
+@using (Ajax.BeginForm("GetTest", "Test",
+                                        new AjaxOptions
+                                        {
+                                            HttpMethod = "POST",
+                                            InsertionMode = InsertionMode.Replace,
+                                            UpdateTargetId = "targetId"
+                                        }))
+{
+    <div>
+        <input type="submit" value="Add Unit" />
+    </div>
+}

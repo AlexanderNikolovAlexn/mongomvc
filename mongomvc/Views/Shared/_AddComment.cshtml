@@ -1,0 +1,56 @@
+﻿@model mongomvc.Models.Comment
+
+<script src="http://code.jquery.com/jquery-1.7.1.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script>
+    function clearCommentForm() {
+        $(':input', '#addComment').not(':button, :submit, :reset, :hidden')
+                                   .val('')
+                                   .removeAttr('checked')
+                                   .removeAttr('selected');
+    }
+</script>
+
+<h2>Add Comment</h2>
+
+@using (Ajax.BeginForm("AddComment", "Post", new AjaxOptions
+{
+    HttpMethod = "POST",
+    InsertionMode = InsertionMode.Replace,
+    OnSuccess = "clearCommentForm",
+    UpdateTargetId = "targetId"
+},
+            new { id = "addComment" }))
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Post</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AuthorName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AuthorName)
+            @Html.ValidationMessageFor(model => model.AuthorName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Text)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Text)
+            @Html.ValidationMessageFor(model => model.Text)
+        </div>
+
+        <div>@Html.HiddenFor(model => model.PostId)</div>
+
+        <p>
+            <input type="submit" value="Add" />
+        </p>
+    </fieldset>
+
+}
+
+<div id="targetId">
+    @{Html.RenderAction("ListComments", "Post", new { postId = Model.PostId }); }
+</div>

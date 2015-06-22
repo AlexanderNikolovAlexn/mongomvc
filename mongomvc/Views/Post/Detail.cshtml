@@ -1,0 +1,14 @@
+﻿@model mongomvc.Models.Post
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>@Model.Title</h2>
+<div style="font-size:small"><i>@Model.DateCreated</i></div>
+<p>@Html.Raw(Model.Body)</p>
+
+<hr style="border: solid">
+
+@{Html.RenderAction("AddComment", "Post", new { postId = Model.PostId }); }
+

@@ -1,0 +1,13 @@
+﻿@model IEnumerable<mongomvc.Models.Comment>
+
+<h2>List Comments</h2>
+
+@{
+    foreach (var comment in Model)
+    {
+        <h4>@comment.AuthorName</h4>
+        <div style="font-size:small"><i>@comment.DateCreated</i></div>
+        <p>@Html.Raw(comment.Text)</p>
+        <p>---------------------------------------------------------</p>
+    }
+}
