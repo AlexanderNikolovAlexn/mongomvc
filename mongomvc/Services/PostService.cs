@@ -9,52 +9,37 @@ using System.Web;
 
 namespace mongomvc.Services
 {
-    public static class PostService
+    public class PostService
     {
-        public static bool Save(Post post)
+        private Connection con;
+
+        public PostService()
         {
-            // save the post into MongoDb
-            MongoServerSettings settings = new MongoServerSettings();
-            settings.Server = new MongoServerAddress("localhost", 27017);
-            // Create server object to communicate with our server
-            MongoServer mongo = new MongoServer(settings);
-            // Get our database instance to reach collections and data
-            var blog = mongo.GetDatabase("mongomvc");
-            var posts = blog.GetCollection("posts");
+            this.con = new Connection();
+        }
+        public bool Save(Post post)
+        {
+            var posts = con.database.GetCollection("posts");
             posts.Insert(post);
-            mongo.Disconnect();
+            con.Disconnect();
             return !String.IsNullOrEmpty(post.PostId);
         }
 
-        public static Post GetById(String postId)
+        public Post GetById(String postId)
         {
-            // save the post into MongoDb
-            MongoServerSettings settings = new MongoServerSettings();
-            settings.Server = new MongoServerAddress("localhost", 27017);
-            // Create server object to communicate with our server
-            MongoServer mongo = new MongoServer(settings);
-            // Get our database instance to reach collections and data
-            var blog = mongo.GetDatabase("mongomvc");
             IMongoQuery query = Query.EQ("_id", postId);
-            var post = blog.GetCollection("posts").FindOneAs<Post>(query);
-            mongo.Disconnect();            
+            var post = con.database.GetCollection("posts").FindOneAs<Post>(query);
+            con.Disconnect();            
             return post;
 
         }
 
-        public static List<Post> GetList()
+        public List<Post> GetList()
         {
-            // save the post into MongoDb
-            MongoServerSettings settings = new MongoServerSettings();
-            settings.Server = new MongoServerAddress("localhost", 27017);
-            // Create server object to communicate with our server
-            MongoServer mongo = new MongoServer(settings);
-            // Get our database instance to reach collections and data
-            var blog = mongo.GetDatabase("mongomvc");
-            MongoCollection collection = blog.GetCollection<Post>("posts");
+            MongoCollection collection = con.database.GetCollection<Post>("posts");
             MongoCursor<Post> cursor = collection.FindAllAs<Post>();
             var list = cursor.ToList();
-            mongo.Disconnect();
+            con.Disconnect();
             return list;
 
         }

@@ -8,8 +8,8 @@ namespace mongomvc.Services
 {
     public class Connection
     {
-        public MongoServer server;
-        public MongoDatabase database;
+        public MongoServer server { get; }
+        public MongoDatabase database { get; }
 
         public Connection()
         {
@@ -17,13 +17,9 @@ namespace mongomvc.Services
             MongoServerSettings settings = new MongoServerSettings();
             settings.Server = new MongoServerAddress("localhost", 27017);
             // Create server object to communicate with our server
-            MongoServer mongo = new MongoServer(settings);
+            this.server = new MongoServer(settings);
             // Get our database instance to reach collections and data
-            var conn = mongo.GetDatabase("mongomvc");
-        }
-        public MongoDatabase GetConnection()
-        {
-            return this.database;
+            this.database = this.server.GetDatabase("mongomvc");
         }
 
         public void Disconnect()

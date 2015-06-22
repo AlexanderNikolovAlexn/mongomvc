@@ -8,38 +8,29 @@ using System.Web;
 
 namespace mongomvc.Services
 {
-    public static class CommentService
+    public class CommentService
     {
-        public static bool Save(Comment comment)
+        private Connection con;
+
+        public CommentService()
         {
-            // save the post into MongoDb
-            MongoServerSettings settings = new MongoServerSettings();
-            settings.Server = new MongoServerAddress("localhost", 27017);
-            // Create server object to communicate with our server
-            MongoServer mongo = new MongoServer(settings);
-            // Get our database instance to reach collections and data
-            var blog = mongo.GetDatabase("mongomvc");
-            var comments = blog.GetCollection("comments");
+            this.con = new Connection();
+        }
+        public bool Save(Comment comment)
+        {            
+            var comments = con.database.GetCollection("comments");
             comments.Insert(comment);
-            mongo.Disconnect();
+            con.Disconnect();
             return !String.IsNullOrEmpty(comment.CommentId);
         }
 
-        public static List<Comment> getList(String postId)
+        public List<Comment> getList(String postId)
         {
-            // save the post into MongoDb
-            MongoServerSettings settings = new MongoServerSettings();
-            settings.Server = new MongoServerAddress("localhost", 27017);
-            // Create server object to communicate with our server
-            MongoServer mongo = new MongoServer(settings);
-            // Get our database instance to reach collections and data
-            var blog = mongo.GetDatabase("mongomvc");
-
-            MongoCollection collection = blog.GetCollection<Post>("comments");
+            MongoCollection collection = con.database.GetCollection<Post>("comments");
             IMongoQuery query = Query.EQ("PostId", postId);
             MongoCursor<Comment> cursor = collection.FindAs<Comment>(query);
             var list = cursor.ToList();
-            mongo.Disconnect();
+            con.Disconnect();
             return list;
 
         }

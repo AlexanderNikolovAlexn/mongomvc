@@ -30,3 +30,35 @@ C:\Users\Eagle\documents\visual studio 2015\Projects\mongomvc\mongomvc\bin\WebGr
 C:\Users\Eagle\documents\visual studio 2015\Projects\mongomvc\mongomvc\bin\Antlr3.Runtime.pdb
 C:\Users\Eagle\documents\visual studio 2015\Projects\mongomvc\mongomvc\bin\Newtonsoft.Json.xml
 C:\Users\Eagle\documents\visual studio 2015\Projects\mongomvc\mongomvc\bin\System.Web.Optimization.xml
+C:\GIT Projects\mongomvc\mongomvc\bin\mongomvc.dll.config
+C:\GIT Projects\mongomvc\mongomvc\bin\mongomvc.dll
+C:\GIT Projects\mongomvc\mongomvc\bin\mongomvc.pdb
+C:\GIT Projects\mongomvc\mongomvc\bin\Antlr3.Runtime.dll
+C:\GIT Projects\mongomvc\mongomvc\bin\MongoDB.Bson.dll
+C:\GIT Projects\mongomvc\mongomvc\bin\MongoDB.Driver.Core.dll
+C:\GIT Projects\mongomvc\mongomvc\bin\MongoDB.Driver.dll
+C:\GIT Projects\mongomvc\mongomvc\bin\MongoDB.Driver.Legacy.dll
+C:\GIT Projects\mongomvc\mongomvc\bin\Newtonsoft.Json.dll
+C:\GIT Projects\mongomvc\mongomvc\bin\System.Web.Helpers.dll
+C:\GIT Projects\mongomvc\mongomvc\bin\System.Web.Mvc.dll
+C:\GIT Projects\mongomvc\mongomvc\bin\System.Web.Optimization.dll
+C:\GIT Projects\mongomvc\mongomvc\bin\System.Web.Razor.dll
+C:\GIT Projects\mongomvc\mongomvc\bin\System.Web.Webpages.Deployment.dll
+C:\GIT Projects\mongomvc\mongomvc\bin\System.Web.Webpages.dll
+C:\GIT Projects\mongomvc\mongomvc\bin\System.Web.Webpages.Razor.dll
+C:\GIT Projects\mongomvc\mongomvc\bin\WebGrease.dll
+C:\GIT Projects\mongomvc\mongomvc\bin\Antlr3.Runtime.pdb
+C:\GIT Projects\mongomvc\mongomvc\bin\MongoDB.Bson.xml
+C:\GIT Projects\mongomvc\mongomvc\bin\MongoDB.Driver.xml
+C:\GIT Projects\mongomvc\mongomvc\bin\MongoDB.Driver.Legacy.xml
+C:\GIT Projects\mongomvc\mongomvc\bin\Newtonsoft.Json.xml
+C:\GIT Projects\mongomvc\mongomvc\bin\System.Web.Optimization.xml
+C:\GIT Projects\mongomvc\mongomvc\bin\System.Web.Razor.xml
+C:\GIT Projects\mongomvc\mongomvc\bin\System.Web.Webpages.xml
+C:\GIT Projects\mongomvc\mongomvc\bin\System.Web.Webpages.Deployment.xml
+C:\GIT Projects\mongomvc\mongomvc\bin\System.Web.Webpages.Razor.xml
+C:\GIT Projects\mongomvc\mongomvc\bin\System.Web.Helpers.xml
+C:\GIT Projects\mongomvc\mongomvc\bin\System.Web.Mvc.xml
+C:\GIT Projects\mongomvc\mongomvc\obj\Debug\mongomvc.csprojResolveAssemblyReference.cache
+C:\GIT Projects\mongomvc\mongomvc\obj\Debug\mongomvc.dll
+C:\GIT Projects\mongomvc\mongomvc\obj\Debug\mongomvc.pdb
